@@ -1,11 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <h:form>     
+            <p:growl id="messages" showDetail="true" />
+
+            <p:toolbar>
+                <f:facet name="left">
+                    <p:commandButton type="button" value="Universidad Mariana" icon="ui-icon-document" />
+
+                    <p:commandButton type="button" value="Inicio" icon="ui-icon-home" />
+
+                </f:facet>
+
+                <f:facet name="right">
+                    <p:menuButton value="Nombre del egresado">
+                        <p:menuitem value="Mi perfil" actionListener="#{toolbarView.save}" update="messages" icon="ui-icon-person" />
+                        <p:menuitem value="Mis distinciones" actionListener="#{toolbarView.update}" update="messages" icon="ui-icon-flag" />
+                        <p:menuitem value="Mi experiencia profecional" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-contact" />
+                        <p:menuitem value="Mis redes" url="http://www.primefaces.org" icon="ui-icon-signal-diag" />
+                    </p:menuButton>
+                </f:facet>
+
+            </p:toolbar>
+        </h:form>
         Hello from Facelets
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
