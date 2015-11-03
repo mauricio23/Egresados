@@ -1,0 +1,54 @@
+Comandos para el uso de git desde consola...
+Una vez instalado git abrimos la consola o git bash y escribimos lo siguiente
+git config --global user.name "su_nombre"
+git config --global user.email "su@correo.com"
+
+Luego creamos una llave... <<ejemplo>>
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/David/.ssh/id_rsa): //enter
+Created directory '/c/Users/David/.ssh'.
+Enter passphrase (empty for no passphrase): //ingresan una contraseña
+Enter same passphrase again: //repiten la contraseña
+// Luego de que se les cree la llave... 
+//Debe apareces algo asi
++---[RSA 2048]----+
+|        .=oB*==. |
+|      o +o=o*+.o |
+|     . B.=o ..+  |
+|      +.B    = o |
+|     . +S.  . +  |
+|      .  o+ o..  |
+|         .o= o . |
+|         .o.. .  |
+|          E. o.  |
++----[SHA256]-----+
+
+//Escribimos la siguiente linea...
+$ cat ~/.ssh/id_rsa.pub
+//esto nos generará un largo texto que empiesa con ssh-rsa ... algo asi
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEEtOUSBM8uQwiufQACLg5WTyVPLpB4GEXHhx8Mg9T
+wxJ/ERMLTXPLqiDTbQWQwBIifQ1grWwiz8EP4Hsc1dBX3PXeQE4uHi6rr1pbaCmbLfrU3xhTuZse8Ai/
+KEevk5bss+mjJ5KZ00iaq3X9gX0fiH8wS9A405oiwQ9sbSmgNtL7LSWE7wZ7JbUAhI+NDor6kioIF8LV
+xD3Q5NSR/UcZgODrIhnUJZTV6w2vnNTMOLdlAFu8ph1L0DwzuThtBDj6vU+SehpBah09lX8bZxbE+ik0
+6JUlK6qgoqCFr1H7K/AJqaUoATjTrO4+JCPGzc1RJaDPxbBJ2RQpLF6qoydR David@David-PC
+// Copian todo ese codigo que se les genere e iremos a la configuracion de nuestra cuenta de GitHub
+// Y en la pestaña SSH Key daremos en el botón  Add SSH Key
+// Colocaremos un titulo (Nombre para identificar el equipo que estemos usando)
+// y en el apartado de Key pegaremos ese largo codigo que se nos generó y daremos clic en Add Key
+
+Luego crean una carpeta dentro de su equipo y se ubican en esa carpeta
+David@David-PC MINGW64 ~/Documents/Repositorios/Egresados
+// En mi Caso creé la carpeta Repositorios dentro de Documentos, y dentro de esta la carpeta Egresados.
+// Me ubico en la carpeta Egresados y escribo las siguientes lineas.
+$ git init
+
+//COMANDO PARA EL USO EN GENERAL
+
+git status //Para verificar si el repositorio tiene cambios
+git pull origin master //para arrastrar lo que alla en el repositorio
+git add <<archivo o carpeta>> //para agregar archivos a un commit
+git commit -m "Comentario" // realizar el commit
+git push origin master // para enviar realizar los cambios en el repositorio
+
+
