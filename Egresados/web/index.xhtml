@@ -5,34 +5,33 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ingeniería de Sistemas</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/jumbotron-narrow.css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <h:form>     
-            <p:growl id="messages" showDetail="true" />
+        <h:form class="form-control">  
+            <p:menubar>
+                <p:menuitem value="Universidad Mariana" url="#"/>
+                <p:submenu label="Quienes somos?">
+                    <p:menuitem value="Misión" url="#"/>
+                    <p:menuitem value="Visión" url="#"/>
+                </p:submenu>
 
-            <p:toolbar>
-                <f:facet name="left">
-                    <p:commandButton type="button" value="Universidad Mariana" icon="ui-icon-document" />
-
-                    <p:commandButton type="button" value="Inicio" icon="ui-icon-home" />
-
+                <f:facet name="options">
+                    <p:inputText style="margin-right:10px" placeholder="Correo electronico"/>
+                    <p:password id="nonFeedback" placeholder="Contraseña" value="#{passwordView.password1}" />
+                    <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
                 </f:facet>
-
-                <f:facet name="right">
-                    <p:menuButton value="Nombre del egresado">
-                        <p:menuitem value="Mi perfil" actionListener="#{toolbarView.save}" update="messages" icon="ui-icon-person" />
-                        <p:menuitem value="Mis distinciones" actionListener="#{toolbarView.update}" update="messages" icon="ui-icon-flag" />
-                        <p:menuitem value="Mi experiencia profecional" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-contact" />
-                        <p:menuitem value="Mis redes" url="http://www.primefaces.org" icon="ui-icon-signal-diag" />
-                    </p:menuButton>
-                </f:facet>
-
-            </p:toolbar>
+            </p:menubar>
         </h:form>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
     </h:body>
 </html>
 
