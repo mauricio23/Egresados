@@ -5,6 +5,9 @@
  */
 package logico;
 
+
+import java.util.ArrayList;
+
 /**
  *
  * @author Laura
@@ -18,6 +21,12 @@ public class ExperienciaProfesional {
     private Cargo cargo;
     
     private Empresa empresa;
+    
+    private ArrayList<Cargo> cargos;
+    
+    private ArrayList<Empresa> empresas;
+    
+ 
     
     //-------------------------------------------------------------------------------------------
     //Constructor
@@ -90,5 +99,41 @@ public class ExperienciaProfesional {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+    
+    
+    public Cargo buscarCargo(String nNombre)
+    {
+        Cargo retorno= null;
+        for(int i=0; i<cargos.size();i++){
+            String miNombre= cargos.get(i).getNombre();
+            if(miNombre.equals(nNombre)){
+                retorno = cargos.get(i);
+            }
+        }
+        return retorno;
+    }
+    
+  
+    
+   
+    
+    
+    
+    
+    public Empresa buscarEmpresa(String nNombre)
+    {
+            Empresa retorno= null;
+            for(int i=0; i<empresas.size();i++){
+                String miNombre= empresas.get(i).getNombre();
+                if(miNombre.equals(nNombre)){
+                    retorno = empresas.get(i);
+                }
+            }
+            return retorno;
+    }
+    
+  
+   
+    
     
 }

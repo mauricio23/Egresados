@@ -13,7 +13,7 @@ public class Distinciones {
     
     private String descripcion;
      
-    private int fechaNacimiento;
+    private String fecha;
       
     private String quienOtorga;
    
@@ -22,10 +22,10 @@ public class Distinciones {
     //Constructor
     //-------------------------------------------------------------------------------------------
     
-    public Distinciones (String nDescripcion, int nFechaNacimiento, String nQuienOtorga)
+    public Distinciones (String nDescripcion, String nFecha, String nQuienOtorga)
     {
         descripcion = nDescripcion;
-        fechaNacimiento = nFechaNacimiento;
+        fecha = nFecha;
         quienOtorga = nQuienOtorga;
     }
     
@@ -48,17 +48,17 @@ public class Distinciones {
     }
 
     /**
-     * @return the fechaNacimiento
+     * @return the fecha
      */
-    public int getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFecha() {
+        return fecha;
     }
 
     /**
-     * @param fechaNacimiento the fechaNacimiento to set
+     * @param fecha the fecha to set
      */
-    public void setFechaNacimiento(int fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     /**

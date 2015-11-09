@@ -73,6 +73,11 @@ public class Empresa {
     public void setPais(String pais) {
         this.pais = pais;
     }
+    
+    public Empresa(String nNombre)
+    {
+        nombre=nNombre;
+    }
 
            
 }

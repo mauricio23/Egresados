@@ -57,6 +57,9 @@ public class Cargo {
         this.funciones = funciones;
     }
     
-    
+    public Cargo(String nNombre)
+    {
+        nombre=nNombre;
+    }
     
 }

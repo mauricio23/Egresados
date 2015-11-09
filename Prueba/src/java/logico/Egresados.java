@@ -31,7 +31,7 @@ public class Egresados {
     /**
     *Fecha de nacimiento del egresado 
     */
-    private int fechaNacimiento;
+    private String fechaNacimiento;
 	
     /**
     *Correo del egresado 
@@ -83,7 +83,7 @@ public class Egresados {
     //----------------------------------------------------------------------
     //CONSTRUCTOR
     //----------------------------------------------------------------------
-    public Egresados (String nNombres, String nApellidos, int nIdentificacion, int nFechaNacimiento, String nCorreo, String nDireccion, 
+    public Egresados (String nNombres, String nApellidos, int nIdentificacion, String nFechaNacimiento, String nCorreo, String nDireccion, 
             int nTelefono, int nAñoEgreso, String nEstadoEgreso)    
     {
         nombres = nNombres;
@@ -152,14 +152,14 @@ public class Egresados {
     /**
      * @return the fechaNacimiento
      */
-    public int getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
     /**
      * @param fechaNacimiento the fechaNacimiento to set
      */
-    public void setFechaNacimiento(int fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -288,8 +288,6 @@ public class Egresados {
     public void setRedes(ArrayList<Red> redes) {
         this.redes = redes;
     }
-    
-    
     
     
 }
