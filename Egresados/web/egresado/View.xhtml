@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EgresadoViewDlg" widgetVar="EgresadoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEgresadoTitle}">
+            <h:form id="EgresadoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{egresadoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_idEgresado}"/>
+                        <h:outputText value="#{egresadoController.selected.idEgresado}" title="#{bundle.ViewEgresadoTitle_idEgresado}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_identificación}"/>
+                        <h:outputText value="#{egresadoController.selected.identificación}" title="#{bundle.ViewEgresadoTitle_identificación}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_nombre}"/>
+                        <h:outputText value="#{egresadoController.selected.nombre}" title="#{bundle.ViewEgresadoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_apellido}"/>
+                        <h:outputText value="#{egresadoController.selected.apellido}" title="#{bundle.ViewEgresadoTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_fechaNacimiento}"/>
+                        <h:outputText value="#{egresadoController.selected.fechaNacimiento}" title="#{bundle.ViewEgresadoTitle_fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_email}"/>
+                        <h:outputText value="#{egresadoController.selected.email}" title="#{bundle.ViewEgresadoTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_direccion}"/>
+                        <h:outputText value="#{egresadoController.selected.direccion}" title="#{bundle.ViewEgresadoTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_telefono}"/>
+                        <h:outputText value="#{egresadoController.selected.telefono}" title="#{bundle.ViewEgresadoTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_añoEgreso}"/>
+                        <h:outputText value="#{egresadoController.selected.añoEgreso}" title="#{bundle.ViewEgresadoTitle_añoEgreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEgresadoLabel_estadoGrado}"/>
+                        <h:outputText value="#{egresadoController.selected.estadoGrado}" title="#{bundle.ViewEgresadoTitle_estadoGrado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EgresadoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

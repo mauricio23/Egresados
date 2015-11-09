@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PostgradoViewDlg" widgetVar="PostgradoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPostgradoTitle}">
+            <h:form id="PostgradoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{postgradoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_idPostgrado}"/>
+                        <h:outputText value="#{postgradoController.selected.idPostgrado}" title="#{bundle.ViewPostgradoTitle_idPostgrado}"/>
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_nombreTitulo}"/>
+                        <h:outputText value="#{postgradoController.selected.nombreTitulo}" title="#{bundle.ViewPostgradoTitle_nombreTitulo}"/>
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_añoInicio}"/>
+                        <h:outputText value="#{postgradoController.selected.añoInicio}" title="#{bundle.ViewPostgradoTitle_añoInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_añoFin}"/>
+                        <h:outputText value="#{postgradoController.selected.añoFin}" title="#{bundle.ViewPostgradoTitle_añoFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_egresado}"/>
+                        <h:outputText value="#{postgradoController.selected.egresado}" title="#{bundle.ViewPostgradoTitle_egresado}"/>
+                        <h:outputText value="#{bundle.ViewPostgradoLabel_universidad}"/>
+                        <h:outputText value="#{postgradoController.selected.universidad}" title="#{bundle.ViewPostgradoTitle_universidad}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PostgradoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

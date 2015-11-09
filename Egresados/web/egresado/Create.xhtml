@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EgresadoCreateDlg" widgetVar="EgresadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEgresadoTitle}">
+            <h:form id="EgresadoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{egresadoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_idEgresado}" for="idEgresado" />
+                        <p:inputText id="idEgresado" value="#{egresadoController.selected.idEgresado}" title="#{bundle.CreateEgresadoTitle_idEgresado}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_idEgresado}"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_identificación}" for="identificación" />
+                        <p:inputText id="identificación" value="#{egresadoController.selected.identificación}" title="#{bundle.CreateEgresadoTitle_identificación}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_identificación}"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{egresadoController.selected.nombre}" title="#{bundle.CreateEgresadoTitle_nombre}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{egresadoController.selected.apellido}" title="#{bundle.CreateEgresadoTitle_apellido}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_fechaNacimiento}" for="fechaNacimiento" />
+                        <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{egresadoController.selected.fechaNacimiento}" title="#{bundle.EditEgresadoTitle_fechaNacimiento}" required="true" requiredMessage="#{bundle.EditEgresadoRequiredMessage_fechaNacimiento}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{egresadoController.selected.email}" title="#{bundle.CreateEgresadoTitle_email}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{egresadoController.selected.direccion}" title="#{bundle.CreateEgresadoTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{egresadoController.selected.telefono}" title="#{bundle.CreateEgresadoTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_añoEgreso}" for="añoEgreso" />
+                        <p:calendar id="añoEgreso" pattern="MM/dd/yyyy" value="#{egresadoController.selected.añoEgreso}" title="#{bundle.EditEgresadoTitle_añoEgreso}" required="true" requiredMessage="#{bundle.EditEgresadoRequiredMessage_añoEgreso}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_estadoGrado}" for="estadoGrado" />
+                        <p:inputText id="estadoGrado" value="#{egresadoController.selected.estadoGrado}" title="#{bundle.CreateEgresadoTitle_estadoGrado}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_estadoGrado}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{egresadoController.create}" value="#{bundle.Save}" update="display,:EgresadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EgresadoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EgresadoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

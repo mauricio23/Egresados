@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DistincionEditDlg" widgetVar="DistincionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDistincionTitle}">
+            <h:form id="DistincionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{distincionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDistincionLabel_idDistincion}" for="idDistincion" />
+                        <p:inputText id="idDistincion" value="#{distincionController.selected.idDistincion}" title="#{bundle.EditDistincionTitle_idDistincion}" required="true" requiredMessage="#{bundle.EditDistincionRequiredMessage_idDistincion}"/>
+                        <p:outputLabel value="#{bundle.EditDistincionLabel_descripción}" for="descripción" />
+                        <p:inputTextarea rows="4" cols="30" id="descripción" value="#{distincionController.selected.descripción}" title="#{bundle.EditDistincionTitle_descripción}" required="true" requiredMessage="#{bundle.EditDistincionRequiredMessage_descripción}"/>
+                        <p:outputLabel value="#{bundle.EditDistincionLabel_quienOtorga}" for="quienOtorga" />
+                        <p:inputText id="quienOtorga" value="#{distincionController.selected.quienOtorga}" title="#{bundle.EditDistincionTitle_quienOtorga}" required="true" requiredMessage="#{bundle.EditDistincionRequiredMessage_quienOtorga}"/>
+                        <p:outputLabel value="#{bundle.EditDistincionLabel_fechaEntrega}" for="fechaEntrega" />
+                        <p:calendar id="fechaEntrega" pattern="MM/dd/yyyy" value="#{distincionController.selected.fechaEntrega}" title="#{bundle.EditDistincionTitle_fechaEntrega}" required="true" requiredMessage="#{bundle.EditDistincionRequiredMessage_fechaEntrega}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditDistincionLabel_egresado}" for="egresado" />
+                        <p:selectOneMenu id="egresado" value="#{distincionController.selected.egresado}" required="true" requiredMessage="#{bundle.EditDistincionRequiredMessage_egresado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{egresadoController.itemsAvailableSelectOne}"
+                                           var="egresadoItem"
+                                           itemValue="#{egresadoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{distincionController.update}" value="#{bundle.Save}" update="display,:DistincionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DistincionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DistincionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

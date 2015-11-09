@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ExperienciaViewDlg" widgetVar="ExperienciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewExperienciaTitle}">
+            <h:form id="ExperienciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{experienciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_idExperiencia}"/>
+                        <h:outputText value="#{experienciaController.selected.idExperiencia}" title="#{bundle.ViewExperienciaTitle_idExperiencia}"/>
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_fechaInicio}"/>
+                        <h:outputText value="#{experienciaController.selected.fechaInicio}" title="#{bundle.ViewExperienciaTitle_fechaInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_fechaFin}"/>
+                        <h:outputText value="#{experienciaController.selected.fechaFin}" title="#{bundle.ViewExperienciaTitle_fechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_cargo}"/>
+                        <h:outputText value="#{experienciaController.selected.cargo}" title="#{bundle.ViewExperienciaTitle_cargo}"/>
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_egresado}"/>
+                        <h:outputText value="#{experienciaController.selected.egresado}" title="#{bundle.ViewExperienciaTitle_egresado}"/>
+                        <h:outputText value="#{bundle.ViewExperienciaLabel_empresa}"/>
+                        <h:outputText value="#{experienciaController.selected.empresa}" title="#{bundle.ViewExperienciaTitle_empresa}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ExperienciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
