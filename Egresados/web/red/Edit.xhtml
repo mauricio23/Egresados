@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RedEditDlg" widgetVar="RedEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRedTitle}">
+            <h:form id="RedEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{redController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditRedLabel_idRed}" for="idRed" />
+                        <p:inputText id="idRed" value="#{redController.selected.idRed}" title="#{bundle.EditRedTitle_idRed}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_idRed}"/>
+                        <p:outputLabel value="#{bundle.EditRedLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{redController.selected.nombre}" title="#{bundle.EditRedTitle_nombre}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditRedLabel_director}" for="director" />
+                        <p:inputText id="director" value="#{redController.selected.director}" title="#{bundle.EditRedTitle_director}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_director}"/>
+                        <p:outputLabel value="#{bundle.EditRedLabel_añoCreación}" for="añoCreación" />
+                        <p:calendar id="añoCreación" pattern="MM/dd/yyyy" value="#{redController.selected.añoCreación}" title="#{bundle.EditRedTitle_añoCreación}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_añoCreación}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditRedLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{redController.selected.email}" title="#{bundle.EditRedTitle_email}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_email}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{redController.update}" value="#{bundle.Save}" update="display,:RedListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RedEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RedEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

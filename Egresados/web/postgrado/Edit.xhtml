@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PostgradoEditDlg" widgetVar="PostgradoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPostgradoTitle}">
+            <h:form id="PostgradoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{postgradoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_idPostgrado}" for="idPostgrado" />
+                        <p:inputText id="idPostgrado" value="#{postgradoController.selected.idPostgrado}" title="#{bundle.EditPostgradoTitle_idPostgrado}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_idPostgrado}"/>
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_nombreTitulo}" for="nombreTitulo" />
+                        <p:inputText id="nombreTitulo" value="#{postgradoController.selected.nombreTitulo}" title="#{bundle.EditPostgradoTitle_nombreTitulo}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_nombreTitulo}"/>
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_añoInicio}" for="añoInicio" />
+                        <p:calendar id="añoInicio" pattern="MM/dd/yyyy" value="#{postgradoController.selected.añoInicio}" title="#{bundle.EditPostgradoTitle_añoInicio}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_añoInicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_añoFin}" for="añoFin" />
+                        <p:calendar id="añoFin" pattern="MM/dd/yyyy" value="#{postgradoController.selected.añoFin}" title="#{bundle.EditPostgradoTitle_añoFin}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_añoFin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_egresado}" for="egresado" />
+                        <p:selectOneMenu id="egresado" value="#{postgradoController.selected.egresado}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_egresado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{egresadoController.itemsAvailableSelectOne}"
+                                           var="egresadoItem"
+                                           itemValue="#{egresadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPostgradoLabel_universidad}" for="universidad" />
+                        <p:selectOneMenu id="universidad" value="#{postgradoController.selected.universidad}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_universidad}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{universidadController.itemsAvailableSelectOne}"
+                                           var="universidadItem"
+                                           itemValue="#{universidadItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{postgradoController.update}" value="#{bundle.Save}" update="display,:PostgradoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PostgradoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PostgradoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
