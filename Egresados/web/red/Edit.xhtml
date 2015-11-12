@@ -12,8 +12,6 @@
             <h:form id="RedEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{redController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRedLabel_idRed}" for="idRed" />
-                        <p:inputText id="idRed" value="#{redController.selected.idRed}" title="#{bundle.EditRedTitle_idRed}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_idRed}"/>
                         <p:outputLabel value="#{bundle.EditRedLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{redController.selected.nombre}" title="#{bundle.EditRedTitle_nombre}" required="true" requiredMessage="#{bundle.EditRedRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditRedLabel_director}" for="director" />

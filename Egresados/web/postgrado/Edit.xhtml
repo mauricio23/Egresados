@@ -12,8 +12,6 @@
             <h:form id="PostgradoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{postgradoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditPostgradoLabel_idPostgrado}" for="idPostgrado" />
-                        <p:inputText id="idPostgrado" value="#{postgradoController.selected.idPostgrado}" title="#{bundle.EditPostgradoTitle_idPostgrado}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_idPostgrado}"/>
                         <p:outputLabel value="#{bundle.EditPostgradoLabel_nombreTitulo}" for="nombreTitulo" />
                         <p:inputText id="nombreTitulo" value="#{postgradoController.selected.nombreTitulo}" title="#{bundle.EditPostgradoTitle_nombreTitulo}" required="true" requiredMessage="#{bundle.EditPostgradoRequiredMessage_nombreTitulo}"/>
                         <p:outputLabel value="#{bundle.EditPostgradoLabel_añoInicio}" for="añoInicio" />

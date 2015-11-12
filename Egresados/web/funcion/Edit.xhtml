@@ -12,8 +12,6 @@
             <h:form id="FuncionEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{funcionController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditFuncionLabel_idFuncion}" for="idFuncion" />
-                        <p:inputText id="idFuncion" value="#{funcionController.selected.idFuncion}" title="#{bundle.EditFuncionTitle_idFuncion}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_idFuncion}"/>
                         <p:outputLabel value="#{bundle.EditFuncionLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{funcionController.selected.nombre}" title="#{bundle.EditFuncionTitle_nombre}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_nombre}"/>
                     </p:panelGrid>

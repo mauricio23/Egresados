@@ -12,9 +12,7 @@
             <h:form id="CargoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{cargoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCargoLabel_idCargo}" for="idCargo" />
-                        <p:inputText id="idCargo" value="#{cargoController.selected.idCargo}" title="#{bundle.CreateCargoTitle_idCargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_idCargo}"/>
-                        <p:outputLabel value="#{bundle.CreateCargoLabel_nombre}" for="nombre" />
+                       <p:outputLabel value="#{bundle.CreateCargoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{cargoController.selected.nombre}" title="#{bundle.CreateCargoTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_nombre}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{cargoController.create}" value="#{bundle.Save}" update="display,:CargoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CargoCreateDialog');"/>

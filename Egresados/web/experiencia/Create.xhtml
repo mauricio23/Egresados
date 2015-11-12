@@ -12,8 +12,6 @@
             <h:form id="ExperienciaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{experienciaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateExperienciaLabel_idExperiencia}" for="idExperiencia" />
-                        <p:inputText id="idExperiencia" value="#{experienciaController.selected.idExperiencia}" title="#{bundle.CreateExperienciaTitle_idExperiencia}" required="true" requiredMessage="#{bundle.CreateExperienciaRequiredMessage_idExperiencia}"/>
                         <p:outputLabel value="#{bundle.CreateExperienciaLabel_fechaInicio}" for="fechaInicio" />
                         <p:calendar id="fechaInicio" pattern="MM/dd/yyyy" value="#{experienciaController.selected.fechaInicio}" title="#{bundle.EditExperienciaTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditExperienciaRequiredMessage_fechaInicio}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateExperienciaLabel_fechaFin}" for="fechaFin" />
