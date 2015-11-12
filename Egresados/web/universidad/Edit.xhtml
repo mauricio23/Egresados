@@ -12,8 +12,6 @@
             <h:form id="UniversidadEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{universidadController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditUniversidadLabel_idUniversidad}" for="idUniversidad" />
-                        <p:inputText id="idUniversidad" value="#{universidadController.selected.idUniversidad}" title="#{bundle.EditUniversidadTitle_idUniversidad}" required="true" requiredMessage="#{bundle.EditUniversidadRequiredMessage_idUniversidad}"/>
                         <p:outputLabel value="#{bundle.EditUniversidadLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{universidadController.selected.nombre}" title="#{bundle.EditUniversidadTitle_nombre}" required="true" requiredMessage="#{bundle.EditUniversidadRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.EditUniversidadLabel_ciudad}" for="ciudad" />
