@@ -12,8 +12,6 @@
             <h:form id="DistincionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{distincionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateDistincionLabel_idDistincion}" for="idDistincion" />
-                        <p:inputText id="idDistincion" value="#{distincionController.selected.idDistincion}" title="#{bundle.CreateDistincionTitle_idDistincion}" required="true" requiredMessage="#{bundle.CreateDistincionRequiredMessage_idDistincion}"/>
                         <p:outputLabel value="#{bundle.CreateDistincionLabel_descripción}" for="descripción" />
                         <p:inputTextarea rows="4" cols="30" id="descripción" value="#{distincionController.selected.descripción}" title="#{bundle.CreateDistincionTitle_descripción}" required="true" requiredMessage="#{bundle.CreateDistincionRequiredMessage_descripción}"/>
                         <p:outputLabel value="#{bundle.CreateDistincionLabel_quienOtorga}" for="quienOtorga" />
