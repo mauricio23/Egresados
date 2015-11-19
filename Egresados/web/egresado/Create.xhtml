@@ -12,8 +12,6 @@
             <h:form id="EgresadoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{egresadoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEgresadoLabel_idEgresado}" for="idEgresado" />
-                        <p:inputText id="idEgresado" value="#{egresadoController.selected.idEgresado}" title="#{bundle.CreateEgresadoTitle_idEgresado}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_idEgresado}"/>
                         <p:outputLabel value="#{bundle.CreateEgresadoLabel_identificación}" for="identificación" />
                         <p:inputText id="identificación" value="#{egresadoController.selected.identificación}" title="#{bundle.CreateEgresadoTitle_identificación}" required="true" requiredMessage="#{bundle.CreateEgresadoRequiredMessage_identificación}"/>
                         <p:outputLabel value="#{bundle.CreateEgresadoLabel_nombre}" for="nombre" />
